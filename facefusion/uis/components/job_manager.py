@@ -2,16 +2,16 @@ from typing import List, Optional, Tuple
 
 import gradio
 
-from facefusion import logger, state_manager, wording
-from facefusion.args import collect_step_args
-from facefusion.common_helper import get_first, get_last
-from facefusion.filesystem import is_directory
-from facefusion.jobs import job_manager
-from facefusion.types import UiWorkflow
-from facefusion.uis import choices as uis_choices
-from facefusion.uis.core import get_ui_component
-from facefusion.uis.types import JobManagerAction
-from facefusion.uis.ui_helper import convert_int_none, convert_str_none, suggest_output_path
+from facfusione import logger, state_manager, wording
+from facfusione.args import collect_step_args
+from facfusione.common_helper import get_first, get_last
+from facfusione.filesystem import is_directory
+from facfusione.jobs import job_manager
+from facfusione.types import UiWorkflow
+from facfusione.uis import choices as uis_choices
+from facfusione.uis.core import get_ui_component
+from facfusione.uis.types import JobManagerAction
+from facfusione.uis.ui_helper import convert_int_none, convert_str_none, suggest_output_path
 
 JOB_MANAGER_WRAPPER : Optional[gradio.Column] = None
 JOB_MANAGER_JOB_ACTION_DROPDOWN : Optional[gradio.Dropdown] = None
