@@ -4,12 +4,12 @@ from typing import Tuple
 import cv2
 import numpy
 
-from facefusion import inference_manager, state_manager
-from facefusion.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
-from facefusion.face_helper import create_rotated_matrix_and_size, estimate_matrix_by_face_landmark_5, transform_points, warp_face_by_translation
-from facefusion.filesystem import resolve_relative_path
-from facefusion.thread_helper import conditional_thread_semaphore
-from facefusion.types import Angle, BoundingBox, DownloadScope, DownloadSet, FaceLandmark5, FaceLandmark68, InferencePool, ModelSet, Prediction, Score, VisionFrame
+from facfusione import inference_manager, state_manager
+from facfusione.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
+from facfusione.face_helper import create_rotated_matrix_and_size, estimate_matrix_by_face_landmark_5, transform_points, warp_face_by_translation
+from facfusione.filesystem import resolve_relative_path
+from facfusione.thread_helper import conditional_thread_semaphore
+from facfusione.types import Angle, BoundingBox, DownloadScope, DownloadSet, FaceLandmark5, FaceLandmark68, InferencePool, ModelSet, Prediction, Score, VisionFrame
 
 
 @lru_cache(maxsize = None)
