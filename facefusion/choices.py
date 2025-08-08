@@ -1,8 +1,8 @@
 import logging
 from typing import List, Sequence
 
-from facefusion.common_helper import create_float_range, create_int_range
-from facefusion.types import Angle, AudioEncoder, AudioFormat, AudioTypeSet, BenchmarkResolution, BenchmarkSet, DownloadProvider, DownloadProviderSet, DownloadScope, EncoderSet, ExecutionProvider, ExecutionProviderSet, FaceDetectorModel, FaceDetectorSet, FaceLandmarkerModel, FaceMaskArea, FaceMaskAreaSet, FaceMaskRegion, FaceMaskRegionSet, FaceMaskType, FaceOccluderModel, FaceParserModel, FaceSelectorMode, FaceSelectorOrder, Gender, ImageFormat, ImageTypeSet, JobStatus, LogLevel, LogLevelSet, Race, Score, TempFrameFormat, UiWorkflow, VideoEncoder, VideoFormat, VideoMemoryStrategy, VideoPreset, VideoTypeSet, WebcamMode
+from facfusione.common_helper import create_float_range, create_int_range
+from facfusione.types import Angle, AudioEncoder, AudioFormat, AudioTypeSet, BenchmarkResolution, BenchmarkSet, DownloadProvider, DownloadProviderSet, DownloadScope, EncoderSet, ExecutionProvider, ExecutionProviderSet, FaceDetectorModel, FaceDetectorSet, FaceLandmarkerModel, FaceMaskArea, FaceMaskAreaSet, FaceMaskRegion, FaceMaskRegionSet, FaceMaskType, FaceOccluderModel, FaceParserModel, FaceSelectorMode, FaceSelectorOrder, Gender, ImageFormat, ImageTypeSet, JobStatus, LogLevel, LogLevelSet, Race, Score, TempFrameFormat, UiWorkflow, VideoEncoder, VideoFormat, VideoMemoryStrategy, VideoPreset, VideoTypeSet, WebcamMode
 
 face_detector_set : FaceDetectorSet =\
 {
@@ -119,7 +119,7 @@ download_provider_set : DownloadProviderSet =\
 		[
 			'https://github.com'
 		],
-		'path': '/facefusion/facefusion-assets/releases/download/{base_name}/{file_name}'
+		'path': '/facfusione/facfusione-assets/releases/download/{base_name}/{file_name}'
 	},
 	'huggingface':
 	{
@@ -128,7 +128,7 @@ download_provider_set : DownloadProviderSet =\
 			'https://huggingface.co',
 			'https://hf-mirror.com'
 		],
-		'path': '/facefusion/{base_name}/resolve/main/{file_name}'
+		'path': '/facfusione/{base_name}/resolve/main/{file_name}'
 	}
 }
 download_providers : List[DownloadProvider] = list(download_provider_set.keys())
