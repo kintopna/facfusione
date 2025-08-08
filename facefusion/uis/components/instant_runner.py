@@ -3,15 +3,15 @@ from typing import Optional, Tuple
 
 import gradio
 
-from facefusion import process_manager, state_manager, wording
-from facefusion.args import collect_step_args
-from facefusion.core import process_step
-from facefusion.filesystem import is_directory, is_image, is_video
-from facefusion.jobs import job_helper, job_manager, job_runner, job_store
-from facefusion.temp_helper import clear_temp_directory
-from facefusion.types import Args, UiWorkflow
-from facefusion.uis.core import get_ui_component
-from facefusion.uis.ui_helper import suggest_output_path
+from facfusione import process_manager, state_manager, wording
+from facfusione.args import collect_step_args
+from facfusione.core import process_step
+from facfusione.filesystem import is_directory, is_image, is_video
+from facfusione.jobs import job_helper, job_manager, job_runner, job_store
+from facfusione.temp_helper import clear_temp_directory
+from facfusione.types import Args, UiWorkflow
+from facfusione.uis.core import get_ui_component
+from facfusione.uis.ui_helper import suggest_output_path
 
 INSTANT_RUNNER_WRAPPER : Optional[gradio.Row] = None
 INSTANT_RUNNER_START_BUTTON : Optional[gradio.Button] = None
