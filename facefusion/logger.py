@@ -1,17 +1,17 @@
 from logging import Logger, basicConfig, getLogger
 
-import facefusion.choices
-from facefusion.common_helper import get_first, get_last
-from facefusion.types import LogLevel
+import facfusione.choices
+from facfusione.common_helper import get_first, get_last
+from facfusione.types import LogLevel
 
 
 def init(log_level : LogLevel) -> None:
 	basicConfig(format = '%(message)s')
-	get_package_logger().setLevel(facefusion.choices.log_level_set.get(log_level))
+	get_package_logger().setLevel(facfusione.choices.log_level_set.get(log_level))
 
 
 def get_package_logger() -> Logger:
-	return getLogger('facefusion')
+	return getLogger('facfusione')
 
 
 def debug(message : str, module_name : str) -> None:
