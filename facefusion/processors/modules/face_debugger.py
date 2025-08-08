@@ -4,21 +4,21 @@ from typing import List
 import cv2
 import numpy
 
-import facefusion.jobs.job_manager
-import facefusion.jobs.job_store
-import facefusion.processors.core as processors
-from facefusion import config, content_analyser, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, logger, process_manager, state_manager, video_manager, wording
-from facefusion.face_analyser import get_many_faces, get_one_face
-from facefusion.face_helper import warp_face_by_face_landmark_5
-from facefusion.face_masker import create_area_mask, create_box_mask, create_occlusion_mask, create_region_mask
-from facefusion.face_selector import find_similar_faces, sort_and_filter_faces
-from facefusion.face_store import get_reference_faces
-from facefusion.filesystem import in_directory, same_file_extension
-from facefusion.processors import choices as processors_choices
-from facefusion.processors.types import FaceDebuggerInputs
-from facefusion.program_helper import find_argument_group
-from facefusion.types import ApplyStateItem, Args, Face, InferencePool, ProcessMode, QueuePayload, UpdateProgress, VisionFrame
-from facefusion.vision import read_image, read_static_image, write_image
+import facfusione.jobs.job_manager
+import facfusione.jobs.job_store
+import facfusione.processors.core as processors
+from facfusione import config, content_analyser, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, logger, process_manager, state_manager, video_manager, wording
+from facfusione.face_analyser import get_many_faces, get_one_face
+from facfusione.face_helper import warp_face_by_face_landmark_5
+from facfusione.face_masker import create_area_mask, create_box_mask, create_occlusion_mask, create_region_mask
+from facfusione.face_selector import find_similar_faces, sort_and_filter_faces
+from facfusione.face_store import get_reference_faces
+from facfusione.filesystem import in_directory, same_file_extension
+from facfusione.processors import choices as processors_choices
+from facfusione.processors.types import FaceDebuggerInputs
+from facfusione.program_helper import find_argument_group
+from facfusione.types import ApplyStateItem, Args, Face, InferencePool, ProcessMode, QueuePayload, UpdateProgress, VisionFrame
+from facfusione.vision import read_image, read_static_image, write_image
 
 
 def get_inference_pool() -> InferencePool:
@@ -33,7 +33,7 @@ def register_args(program : ArgumentParser) -> None:
 	group_processors = find_argument_group(program, 'processors')
 	if group_processors:
 		group_processors.add_argument('--face-debugger-items', help = wording.get('help.face_debugger_items').format(choices = ', '.join(processors_choices.face_debugger_items)), default = config.get_str_list('processors', 'face_debugger_items', 'face-landmark-5/68 face-mask'), choices = processors_choices.face_debugger_items, nargs = '+', metavar = 'FACE_DEBUGGER_ITEMS')
-		facefusion.jobs.job_store.register_step_keys([ 'face_debugger_items' ])
+		facfusione.jobs.job_store.register_step_keys([ 'face_debugger_items' ])
 
 
 def apply_args(args : Args, apply_state_item : ApplyStateItem) -> None:
