@@ -4,11 +4,11 @@ from typing import Tuple
 import numpy
 import scipy
 
-from facefusion import inference_manager
-from facefusion.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
-from facefusion.filesystem import resolve_relative_path
-from facefusion.thread_helper import thread_semaphore
-from facefusion.types import Audio, AudioChunk, DownloadScope, InferencePool, ModelOptions, ModelSet
+from facfusione import inference_manager
+from facfusione.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
+from facfusione.filesystem import resolve_relative_path
+from facfusione.thread_helper import thread_semaphore
+from facfusione.types import Audio, AudioChunk, DownloadScope, InferencePool, ModelOptions, ModelSet
 
 
 @lru_cache(maxsize = None)
