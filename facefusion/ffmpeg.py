@@ -6,12 +6,12 @@ from typing import List, Optional, cast
 
 from tqdm import tqdm
 
-import facefusion.choices
-from facefusion import ffmpeg_builder, logger, process_manager, state_manager, wording
-from facefusion.filesystem import get_file_format, remove_file
-from facefusion.temp_helper import get_temp_file_path, get_temp_frames_pattern
-from facefusion.types import AudioBuffer, AudioEncoder, Commands, EncoderSet, Fps, UpdateProgress, VideoEncoder, VideoFormat
-from facefusion.vision import detect_video_duration, detect_video_fps, predict_video_frame_total
+import facfusione.choices
+from facfusione import ffmpeg_builder, logger, process_manager, state_manager, wording
+from facfusione.filesystem import get_file_format, remove_file
+from facfusione.temp_helper import get_temp_file_path, get_temp_frames_pattern
+from facfusione.types import AudioBuffer, AudioEncoder, Commands, EncoderSet, Fps, UpdateProgress, VideoEncoder, VideoFormat
+from facfusione.vision import detect_video_duration, detect_video_fps, predict_video_frame_total
 
 
 def run_ffmpeg_with_progress(commands : Commands, update_progress : UpdateProgress) -> subprocess.Popen[bytes]:
@@ -93,14 +93,14 @@ def get_available_encoder_set() -> EncoderSet:
 		if line.startswith(' a'):
 			audio_encoder = line.split()[1]
 
-			if audio_encoder in facefusion.choices.output_audio_encoders:
-				index = facefusion.choices.output_audio_encoders.index(audio_encoder) #type:ignore[arg-type]
+			if audio_encoder in facfusione.choices.output_audio_encoders:
+				index = facfusione.choices.output_audio_encoders.index(audio_encoder) #type:ignore[arg-type]
 				available_encoder_set['audio'].insert(index, audio_encoder) #type:ignore[arg-type]
 		if line.startswith(' v'):
 			video_encoder = line.split()[1]
 
-			if video_encoder in facefusion.choices.output_video_encoders:
-				index = facefusion.choices.output_video_encoders.index(video_encoder) #type:ignore[arg-type]
+			if video_encoder in facfusione.choices.output_video_encoders:
+				index = facfusione.choices.output_video_encoders.index(video_encoder) #type:ignore[arg-type]
 				available_encoder_set['video'].insert(index, video_encoder) #type:ignore[arg-type]
 
 	return available_encoder_set
