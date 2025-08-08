@@ -3,7 +3,7 @@ from typing import Optional
 
 import gradio
 
-from facefusion import metadata, wording
+from facfusione import metadata, wording
 
 METADATA_BUTTON : Optional[gradio.Button] = None
 ACTION_BUTTON : Optional[gradio.Button] = None
@@ -17,15 +17,15 @@ def render() -> None:
 	[
 		{
 			'wording': wording.get('about.become_a_member'),
-			'url': 'https://subscribe.facefusion.io'
+			'url': 'https://subscribe.facfusione.io'
 		},
 		{
 			'wording': wording.get('about.join_our_community'),
-			'url': 'https://join.facefusion.io'
+			'url': 'https://join.facfusione.io'
 		},
 		{
 			'wording': wording.get('about.read_the_documentation'),
-			'url': 'https://docs.facefusion.io'
+			'url': 'https://docs.facfusione.io'
 		}
 	])
 
