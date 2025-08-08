@@ -6,11 +6,11 @@ from urllib.parse import urlparse
 
 from tqdm import tqdm
 
-import facefusion.choices
-from facefusion import curl_builder, logger, process_manager, state_manager, wording
-from facefusion.filesystem import get_file_name, get_file_size, is_file, remove_file
-from facefusion.hash_helper import validate_hash
-from facefusion.types import Commands, DownloadProvider, DownloadSet
+import facfusione.choices
+from facfusione import curl_builder, logger, process_manager, state_manager, wording
+from facfusione.filesystem import get_file_name, get_file_size, is_file, remove_file
+from facfusione.hash_helper import validate_hash
+from facfusione.types import Commands, DownloadProvider, DownloadSet
 
 
 def open_curl(commands : Commands) -> subprocess.Popen[bytes]:
@@ -165,7 +165,7 @@ def resolve_download_url(base_name : str, file_name : str) -> Optional[str]:
 
 
 def resolve_download_url_by_provider(download_provider : DownloadProvider, base_name : str, file_name : str) -> Optional[str]:
-	download_provider_value = facefusion.choices.download_provider_set.get(download_provider)
+	download_provider_value = facfusione.choices.download_provider_set.get(download_provider)
 
 	for download_provider_url in download_provider_value.get('urls'):
 		if ping_static_url(download_provider_url):
