@@ -2,11 +2,11 @@ from typing import Optional
 
 import gradio
 
-import facefusion.choices
-from facefusion import wording
-from facefusion.common_helper import get_first
-from facefusion.uis.components.webcam import get_available_webcam_ids
-from facefusion.uis.core import register_ui_component
+import facfusione.choices
+from facfusione import wording
+from facfusione.common_helper import get_first
+from facfusione.uis.components.webcam import get_available_webcam_ids
+from facfusione.uis.core import register_ui_component
 
 WEBCAM_DEVICE_ID_DROPDOWN : Optional[gradio.Dropdown] = None
 WEBCAM_MODE_RADIO : Optional[gradio.Radio] = None
@@ -28,13 +28,13 @@ def render() -> None:
 	)
 	WEBCAM_MODE_RADIO = gradio.Radio(
 		label = wording.get('uis.webcam_mode_radio'),
-		choices = facefusion.choices.webcam_modes,
+		choices = facfusione.choices.webcam_modes,
 		value = 'inline'
 	)
 	WEBCAM_RESOLUTION_DROPDOWN = gradio.Dropdown(
 		label = wording.get('uis.webcam_resolution_dropdown'),
-		choices = facefusion.choices.webcam_resolutions,
-		value = facefusion.choices.webcam_resolutions[0]
+		choices = facfusione.choices.webcam_resolutions,
+		value = facfusione.choices.webcam_resolutions[0]
 	)
 	WEBCAM_FPS_SLIDER = gradio.Slider(
 		label = wording.get('uis.webcam_fps_slider'),
