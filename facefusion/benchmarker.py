@@ -5,13 +5,13 @@ import tempfile
 from time import perf_counter
 from typing import Generator, List
 
-import facefusion.choices
-from facefusion import core, state_manager
-from facefusion.cli_helper import render_table
-from facefusion.download import conditional_download, resolve_download_url
-from facefusion.filesystem import get_file_extension
-from facefusion.types import BenchmarkCycleSet
-from facefusion.vision import count_video_frame_total, detect_video_fps, detect_video_resolution, pack_resolution
+import facfusione.choices
+from facfusione import core, state_manager
+from facfusione.cli_helper import render_table
+from facfusione.download import conditional_download, resolve_download_url
+from facfusione.filesystem import get_file_extension
+from facfusione.types import BenchmarkCycleSet
+from facfusione.vision import count_video_frame_total, detect_video_fps, detect_video_resolution, pack_resolution
 
 
 def pre_check() -> bool:
@@ -42,7 +42,7 @@ def run() -> Generator[List[BenchmarkCycleSet], None, None]:
 	state_manager.init_item('video_memory_strategy', 'tolerant')
 
 	benchmarks = []
-	target_paths = [facefusion.choices.benchmark_set.get(benchmark_resolution) for benchmark_resolution in benchmark_resolutions if benchmark_resolution in facefusion.choices.benchmark_set]
+	target_paths = [facfusione.choices.benchmark_set.get(benchmark_resolution) for benchmark_resolution in benchmark_resolutions if benchmark_resolution in facfusione.choices.benchmark_set]
 
 	for target_path in target_paths:
 		state_manager.set_item('target_path', target_path)
