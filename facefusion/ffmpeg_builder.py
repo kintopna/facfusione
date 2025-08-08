@@ -4,8 +4,8 @@ from typing import Optional
 
 import numpy
 
-from facefusion.filesystem import get_file_format
-from facefusion.types import AudioEncoder, Commands, Duration, Fps, StreamMode, VideoEncoder, VideoPreset
+from facfusione.filesystem import get_file_format
+from facfusione.types import AudioEncoder, Commands, Duration, Fps, StreamMode, VideoEncoder, VideoPreset
 
 
 def run(commands : Commands) -> Commands:
