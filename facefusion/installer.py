@@ -7,8 +7,8 @@ from argparse import ArgumentParser, HelpFormatter
 from functools import partial
 from types import FrameType
 
-from facefusion import metadata, wording
-from facefusion.common_helper import is_linux, is_windows
+from facfusione import metadata, wording
+from facfusione.common_helper import is_linux, is_windows
 
 ONNXRUNTIME_SET =\
 {
