@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 from typing import Optional
 
-from facefusion.filesystem import get_file_extension, get_file_name
+from facfusione.filesystem import get_file_extension, get_file_name
 
 
 def get_step_output_path(job_id : str, step_index : int, output_path : str) -> Optional[str]:
