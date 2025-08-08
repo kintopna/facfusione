@@ -2,7 +2,7 @@ import os
 import zlib
 from typing import Optional
 
-from facefusion.filesystem import get_file_name, is_file
+from facfusione.filesystem import get_file_name, is_file
 
 
 def create_hash(content : bytes) -> str:
