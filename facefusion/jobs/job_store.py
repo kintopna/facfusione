@@ -1,6 +1,6 @@
 from typing import List
 
-from facefusion.types import JobStore
+from facfusione.types import JobStore
 
 JOB_STORE : JobStore =\
 {
