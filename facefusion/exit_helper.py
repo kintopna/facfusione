@@ -3,9 +3,9 @@ import sys
 from time import sleep
 from types import FrameType
 
-from facefusion import process_manager, state_manager
-from facefusion.temp_helper import clear_temp_directory
-from facefusion.types import ErrorCode
+from facfusione import process_manager, state_manager
+from facfusione.temp_helper import clear_temp_directory
+from facfusione.types import ErrorCode
 
 
 def hard_exit(error_code : ErrorCode) -> None:
