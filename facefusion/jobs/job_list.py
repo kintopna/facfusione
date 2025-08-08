@@ -1,9 +1,9 @@
 from datetime import datetime
 from typing import Optional, Tuple
 
-from facefusion.date_helper import describe_time_ago
-from facefusion.jobs import job_manager
-from facefusion.types import JobStatus, TableContents, TableHeaders
+from facfusione.date_helper import describe_time_ago
+from facfusione.jobs import job_manager
+from facfusione.types import JobStatus, TableContents, TableHeaders
 
 
 def compose_job_list(job_status : JobStatus) -> Tuple[TableHeaders, TableContents]:
