@@ -1,7 +1,7 @@
-from facefusion import ffmpeg_builder
-from facefusion.ffmpeg import run_ffmpeg
-from facefusion.filesystem import get_file_size
-from facefusion.temp_helper import create_temp_directory, get_temp_file_path
+from facfusione import ffmpeg_builder
+from facfusione.ffmpeg import run_ffmpeg
+from facfusione.filesystem import get_file_size
+from facfusione.temp_helper import create_temp_directory, get_temp_file_path
 
 
 def convert_video_to_playable_mp4(video_path : str) -> str:
