@@ -2,15 +2,15 @@ from typing import List, Optional
 
 import numpy
 
-from facefusion import state_manager
-from facefusion.common_helper import get_first
-from facefusion.face_classifier import classify_face
-from facefusion.face_detector import detect_faces, detect_rotated_faces
-from facefusion.face_helper import apply_nms, convert_to_face_landmark_5, estimate_face_angle, get_nms_threshold
-from facefusion.face_landmarker import detect_face_landmark, estimate_face_landmark_68_5
-from facefusion.face_recognizer import calc_embedding
-from facefusion.face_store import get_static_faces, set_static_faces
-from facefusion.types import BoundingBox, Face, FaceLandmark5, FaceLandmarkSet, FaceScoreSet, Score, VisionFrame
+from facfusione import state_manager
+from facfusione.common_helper import get_first
+from facfusione.face_classifier import classify_face
+from facfusione.face_detector import detect_faces, detect_rotated_faces
+from facfusione.face_helper import apply_nms, convert_to_face_landmark_5, estimate_face_angle, get_nms_threshold
+from facfusione.face_landmarker import detect_face_landmark, estimate_face_landmark_68_5
+from facfusione.face_recognizer import calc_embedding
+from facfusione.face_store import get_static_faces, set_static_faces
+from facfusione.types import BoundingBox, Face, FaceLandmark5, FaceLandmarkSet, FaceScoreSet, Score, VisionFrame
 
 
 def create_faces(vision_frame : VisionFrame, bounding_boxes : List[BoundingBox], face_scores : List[Score], face_landmarks_5 : List[FaceLandmark5]) -> List[Face]:
