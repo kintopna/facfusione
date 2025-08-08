@@ -1,8 +1,8 @@
 from configparser import ConfigParser
 from typing import List, Optional
 
-from facefusion import state_manager
-from facefusion.common_helper import cast_bool, cast_float, cast_int
+from facfusione import state_manager
+from facfusione.common_helper import cast_bool, cast_float, cast_int
 
 CONFIG_PARSER = None
 
