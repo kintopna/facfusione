@@ -2,7 +2,7 @@ from typing import Any, Dict, List, Literal, TypeAlias, TypedDict
 
 from numpy.typing import NDArray
 
-from facefusion.types import AppContext, AudioFrame, Face, FaceSet, VisionFrame
+from facfusione.types import AppContext, AudioFrame, Face, FaceSet, VisionFrame
 
 AgeModifierModel = Literal['styleganex_age']
 DeepSwapperModel : TypeAlias = str
