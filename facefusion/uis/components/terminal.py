@@ -7,9 +7,9 @@ from typing import Optional
 import gradio
 from tqdm import tqdm
 
-import facefusion.choices
-from facefusion import logger, state_manager, wording
-from facefusion.types import LogLevel
+import facfusione.choices
+from facfusione import logger, state_manager, wording
+from facfusione.types import LogLevel
 
 LOG_LEVEL_DROPDOWN : Optional[gradio.Dropdown] = None
 TERMINAL_TEXTBOX : Optional[gradio.Textbox] = None
@@ -24,7 +24,7 @@ def render() -> None:
 
 	LOG_LEVEL_DROPDOWN = gradio.Dropdown(
 		label = wording.get('uis.log_level_dropdown'),
-		choices = facefusion.choices.log_levels,
+		choices = facfusione.choices.log_levels,
 		value = state_manager.get_item('log_level')
 	)
 	TERMINAL_TEXTBOX = gradio.Textbox(
