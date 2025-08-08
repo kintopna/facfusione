@@ -5,24 +5,24 @@ from typing import List
 import cv2
 import numpy
 
-import facefusion.jobs.job_manager
-import facefusion.jobs.job_store
-import facefusion.processors.core as processors
-from facefusion import config, content_analyser, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, inference_manager, logger, process_manager, state_manager, video_manager, wording
-from facefusion.common_helper import create_float_metavar, create_int_metavar
-from facefusion.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
-from facefusion.face_analyser import get_many_faces, get_one_face
-from facefusion.face_helper import paste_back, warp_face_by_face_landmark_5
-from facefusion.face_masker import create_box_mask, create_occlusion_mask
-from facefusion.face_selector import find_similar_faces, sort_and_filter_faces
-from facefusion.face_store import get_reference_faces
-from facefusion.filesystem import in_directory, is_image, is_video, resolve_relative_path, same_file_extension
-from facefusion.processors import choices as processors_choices
-from facefusion.processors.types import FaceEnhancerInputs, FaceEnhancerWeight
-from facefusion.program_helper import find_argument_group
-from facefusion.thread_helper import thread_semaphore
-from facefusion.types import ApplyStateItem, Args, DownloadScope, Face, InferencePool, ModelOptions, ModelSet, ProcessMode, QueuePayload, UpdateProgress, VisionFrame
-from facefusion.vision import read_image, read_static_image, write_image
+import facfusione.jobs.job_manager
+import facfusione.jobs.job_store
+import facfusione.processors.core as processors
+from facfusione import config, content_analyser, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, inference_manager, logger, process_manager, state_manager, video_manager, wording
+from facfusione.common_helper import create_float_metavar, create_int_metavar
+from facfusione.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
+from facfusione.face_analyser import get_many_faces, get_one_face
+from facfusione.face_helper import paste_back, warp_face_by_face_landmark_5
+from facfusione.face_masker import create_box_mask, create_occlusion_mask
+from facfusione.face_selector import find_similar_faces, sort_and_filter_faces
+from facfusione.face_store import get_reference_faces
+from facfusione.filesystem import in_directory, is_image, is_video, resolve_relative_path, same_file_extension
+from facfusione.processors import choices as processors_choices
+from facfusione.processors.types import FaceEnhancerInputs, FaceEnhancerWeight
+from facfusione.program_helper import find_argument_group
+from facfusione.thread_helper import thread_semaphore
+from facfusione.types import ApplyStateItem, Args, DownloadScope, Face, InferencePool, ModelOptions, ModelSet, ProcessMode, QueuePayload, UpdateProgress, VisionFrame
+from facfusione.vision import read_image, read_static_image, write_image
 
 
 @lru_cache(maxsize = None)
@@ -244,7 +244,7 @@ def register_args(program : ArgumentParser) -> None:
 		group_processors.add_argument('--face-enhancer-model', help = wording.get('help.face_enhancer_model'), default = config.get_str_value('processors', 'face_enhancer_model', 'gfpgan_1.4'), choices = processors_choices.face_enhancer_models)
 		group_processors.add_argument('--face-enhancer-blend', help = wording.get('help.face_enhancer_blend'), type = int, default = config.get_int_value('processors', 'face_enhancer_blend', '80'), choices = processors_choices.face_enhancer_blend_range, metavar = create_int_metavar(processors_choices.face_enhancer_blend_range))
 		group_processors.add_argument('--face-enhancer-weight', help = wording.get('help.face_enhancer_weight'), type = float, default = config.get_float_value('processors', 'face_enhancer_weight', '1.0'), choices = processors_choices.face_enhancer_weight_range, metavar = create_float_metavar(processors_choices.face_enhancer_weight_range))
-		facefusion.jobs.job_store.register_step_keys([ 'face_enhancer_model', 'face_enhancer_blend', 'face_enhancer_weight' ])
+		facfusione.jobs.job_store.register_step_keys([ 'face_enhancer_model', 'face_enhancer_blend', 'face_enhancer_weight' ])
 
 
 def apply_args(args : Args, apply_state_item : ApplyStateItem) -> None:
