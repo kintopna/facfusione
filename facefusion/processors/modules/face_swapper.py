@@ -5,28 +5,28 @@ from typing import List, Tuple
 import cv2
 import numpy
 
-import facefusion.choices
-import facefusion.jobs.job_manager
-import facefusion.jobs.job_store
-import facefusion.processors.core as processors
-from facefusion import config, content_analyser, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, inference_manager, logger, process_manager, state_manager, video_manager, wording
-from facefusion.common_helper import get_first
-from facefusion.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
-from facefusion.execution import has_execution_provider
-from facefusion.face_analyser import get_average_face, get_many_faces, get_one_face
-from facefusion.face_helper import paste_back, warp_face_by_face_landmark_5
-from facefusion.face_masker import create_area_mask, create_box_mask, create_occlusion_mask, create_region_mask
-from facefusion.face_selector import find_similar_faces, sort_and_filter_faces, sort_faces_by_order
-from facefusion.face_store import get_reference_faces
-from facefusion.filesystem import filter_image_paths, has_image, in_directory, is_image, is_video, resolve_relative_path, same_file_extension
-from facefusion.model_helper import get_static_model_initializer
-from facefusion.processors import choices as processors_choices
-from facefusion.processors.pixel_boost import explode_pixel_boost, implode_pixel_boost
-from facefusion.processors.types import FaceSwapperInputs
-from facefusion.program_helper import find_argument_group
-from facefusion.thread_helper import conditional_thread_semaphore
-from facefusion.types import ApplyStateItem, Args, DownloadScope, Embedding, Face, InferencePool, ModelOptions, ModelSet, ProcessMode, QueuePayload, UpdateProgress, VisionFrame
-from facefusion.vision import read_image, read_static_image, read_static_images, unpack_resolution, write_image
+import facfusione.choices
+import facfusione.jobs.job_manager
+import facfusione.jobs.job_store
+import facfusione.processors.core as processors
+from facfusione import config, content_analyser, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, inference_manager, logger, process_manager, state_manager, video_manager, wording
+from facfusione.common_helper import get_first
+from facfusione.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
+from facfusione.execution import has_execution_provider
+from facfusione.face_analyser import get_average_face, get_many_faces, get_one_face
+from facfusione.face_helper import paste_back, warp_face_by_face_landmark_5
+from facfusione.face_masker import create_area_mask, create_box_mask, create_occlusion_mask, create_region_mask
+from facfusione.face_selector import find_similar_faces, sort_and_filter_faces, sort_faces_by_order
+from facfusione.face_store import get_reference_faces
+from facfusione.filesystem import filter_image_paths, has_image, in_directory, is_image, is_video, resolve_relative_path, same_file_extension
+from facfusione.model_helper import get_static_model_initializer
+from facfusione.processors import choices as processors_choices
+from facfusione.processors.pixel_boost import explode_pixel_boost, implode_pixel_boost
+from facfusione.processors.types import FaceSwapperInputs
+from facfusione.program_helper import find_argument_group
+from facfusione.thread_helper import conditional_thread_semaphore
+from facfusione.types import ApplyStateItem, Args, DownloadScope, Embedding, Face, InferencePool, ModelOptions, ModelSet, ProcessMode, QueuePayload, UpdateProgress, VisionFrame
+from facfusione.vision import read_image, read_static_image, read_static_images, unpack_resolution, write_image
 
 
 @lru_cache(maxsize = None)
@@ -440,7 +440,7 @@ def register_args(program : ArgumentParser) -> None:
 		known_args, _ = program.parse_known_args()
 		face_swapper_pixel_boost_choices = processors_choices.face_swapper_set.get(known_args.face_swapper_model)
 		group_processors.add_argument('--face-swapper-pixel-boost', help = wording.get('help.face_swapper_pixel_boost'), default = config.get_str_value('processors', 'face_swapper_pixel_boost', get_first(face_swapper_pixel_boost_choices)), choices = face_swapper_pixel_boost_choices)
-		facefusion.jobs.job_store.register_step_keys([ 'face_swapper_model', 'face_swapper_pixel_boost' ])
+		facfusione.jobs.job_store.register_step_keys([ 'face_swapper_model', 'face_swapper_pixel_boost' ])
 
 
 def apply_args(args : Args, apply_state_item : ApplyStateItem) -> None:
@@ -537,7 +537,7 @@ def forward_swap_face(source_face : Face, crop_vision_frame : VisionFrame) -> Vi
 	face_swapper_inputs = {}
 
 	if has_execution_provider('coreml') and model_type in [ 'ghost', 'uniface' ]:
-		face_swapper.set_providers([ facefusion.choices.execution_provider_set.get('cpu') ])
+		face_swapper.set_providers([ facfusione.choices.execution_provider_set.get('cpu') ])
 
 	for face_swapper_input in face_swapper.get_inputs():
 		if face_swapper_input.name == 'source':
