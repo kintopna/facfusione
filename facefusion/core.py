@@ -7,26 +7,26 @@ from time import time
 
 import numpy
 
-from facefusion import benchmarker, cli_helper, content_analyser, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, hash_helper, logger, process_manager, state_manager, video_manager, voice_extractor, wording
-from facefusion.args import apply_args, collect_job_args, reduce_job_args, reduce_step_args
-from facefusion.common_helper import get_first
-from facefusion.content_analyser import analyse_image, analyse_video
-from facefusion.download import conditional_download_hashes, conditional_download_sources
-from facefusion.exit_helper import hard_exit, signal_exit
-from facefusion.face_analyser import get_average_face, get_many_faces, get_one_face
-from facefusion.face_selector import sort_and_filter_faces
-from facefusion.face_store import append_reference_face, clear_reference_faces, get_reference_faces
-from facefusion.ffmpeg import copy_image, extract_frames, finalize_image, merge_video, replace_audio, restore_audio
-from facefusion.filesystem import filter_audio_paths, get_file_name, is_image, is_video, resolve_file_paths, resolve_file_pattern
-from facefusion.jobs import job_helper, job_manager, job_runner
-from facefusion.jobs.job_list import compose_job_list
-from facefusion.memory import limit_system_memory
-from facefusion.processors.core import get_processors_modules
-from facefusion.program import create_program
-from facefusion.program_helper import validate_args
-from facefusion.temp_helper import clear_temp_directory, create_temp_directory, get_temp_file_path, move_temp_file, resolve_temp_frame_paths
-from facefusion.types import Args, ErrorCode
-from facefusion.vision import pack_resolution, read_image, read_static_images, read_video_frame, restrict_image_resolution, restrict_trim_frame, restrict_video_fps, restrict_video_resolution, unpack_resolution
+from facfusione import benchmarker, cli_helper, content_analyser, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, hash_helper, logger, process_manager, state_manager, video_manager, voice_extractor, wording
+from facfusione.args import apply_args, collect_job_args, reduce_job_args, reduce_step_args
+from facfusione.common_helper import get_first
+from facfusione.content_analyser import analyse_image, analyse_video
+from facfusione.download import conditional_download_hashes, conditional_download_sources
+from facfusione.exit_helper import hard_exit, signal_exit
+from facfusione.face_analyser import get_average_face, get_many_faces, get_one_face
+from facfusione.face_selector import sort_and_filter_faces
+from facfusione.face_store import append_reference_face, clear_reference_faces, get_reference_faces
+from facfusione.ffmpeg import copy_image, extract_frames, finalize_image, merge_video, replace_audio, restore_audio
+from facfusione.filesystem import filter_audio_paths, get_file_name, is_image, is_video, resolve_file_paths, resolve_file_pattern
+from facfusione.jobs import job_helper, job_manager, job_runner
+from facfusione.jobs.job_list import compose_job_list
+from facfusione.memory import limit_system_memory
+from facfusione.processors.core import get_processors_modules
+from facfusione.program import create_program
+from facfusione.program_helper import validate_args
+from facfusione.temp_helper import clear_temp_directory, create_temp_directory, get_temp_file_path, move_temp_file, resolve_temp_frame_paths
+from facfusione.types import Args, ErrorCode
+from facfusione.vision import pack_resolution, read_image, read_static_images, read_video_frame, restrict_image_resolution, restrict_trim_frame, restrict_video_fps, restrict_video_resolution, unpack_resolution
 
 
 def cli() -> None:
@@ -71,7 +71,7 @@ def route(args : Args) -> None:
 		hard_exit(error_code)
 
 	if state_manager.get_item('command') == 'run':
-		import facefusion.uis.core as ui
+		import facfusione.uis.core as ui
 
 		if not common_pre_check() or not processors_pre_check():
 			return hard_exit(2)
@@ -151,7 +151,7 @@ def force_download() -> ErrorCode:
 		face_recognizer,
 		voice_extractor
 	]
-	available_processors = [ get_file_name(file_path) for file_path in resolve_file_paths('facefusion/processors/modules') ]
+	available_processors = [ get_file_name(file_path) for file_path in resolve_file_paths('facfusione/processors/modules') ]
 	processor_modules = get_processors_modules(available_processors)
 
 	for module in common_modules + processor_modules:
