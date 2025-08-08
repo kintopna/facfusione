@@ -2,8 +2,8 @@ from typing import List, Optional
 
 import gradio
 
-from facefusion import state_manager, wording
-from facefusion.uis import choices as uis_choices
+from facfusione import state_manager, wording
+from facfusione.uis import choices as uis_choices
 
 COMMON_OPTIONS_CHECKBOX_GROUP : Optional[gradio.Checkboxgroup] = None
 
