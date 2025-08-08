@@ -5,20 +5,20 @@ from typing import List
 import cv2
 import numpy
 
-import facefusion.jobs.job_manager
-import facefusion.jobs.job_store
-import facefusion.processors.core as processors
-from facefusion import config, content_analyser, inference_manager, logger, process_manager, state_manager, video_manager, wording
-from facefusion.common_helper import create_int_metavar
-from facefusion.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
-from facefusion.execution import has_execution_provider
-from facefusion.filesystem import in_directory, is_image, is_video, resolve_relative_path, same_file_extension
-from facefusion.processors import choices as processors_choices
-from facefusion.processors.types import FrameEnhancerInputs
-from facefusion.program_helper import find_argument_group
-from facefusion.thread_helper import conditional_thread_semaphore
-from facefusion.types import ApplyStateItem, Args, DownloadScope, Face, InferencePool, ModelOptions, ModelSet, ProcessMode, QueuePayload, UpdateProgress, VisionFrame
-from facefusion.vision import create_tile_frames, merge_tile_frames, read_image, read_static_image, write_image
+import facfusione.jobs.job_manager
+import facfusione.jobs.job_store
+import facfusione.processors.core as processors
+from facfusione import config, content_analyser, inference_manager, logger, process_manager, state_manager, video_manager, wording
+from facfusione.common_helper import create_int_metavar
+from facfusione.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
+from facfusione.execution import has_execution_provider
+from facfusione.filesystem import in_directory, is_image, is_video, resolve_relative_path, same_file_extension
+from facfusione.processors import choices as processors_choices
+from facfusione.processors.types import FrameEnhancerInputs
+from facfusione.program_helper import find_argument_group
+from facfusione.thread_helper import conditional_thread_semaphore
+from facfusione.types import ApplyStateItem, Args, DownloadScope, Face, InferencePool, ModelOptions, ModelSet, ProcessMode, QueuePayload, UpdateProgress, VisionFrame
+from facfusione.vision import create_tile_frames, merge_tile_frames, read_image, read_static_image, write_image
 
 
 @lru_cache(maxsize = None)
@@ -441,7 +441,7 @@ def register_args(program : ArgumentParser) -> None:
 	if group_processors:
 		group_processors.add_argument('--frame-enhancer-model', help = wording.get('help.frame_enhancer_model'), default = config.get_str_value('processors', 'frame_enhancer_model', 'span_kendata_x4'), choices = processors_choices.frame_enhancer_models)
 		group_processors.add_argument('--frame-enhancer-blend', help = wording.get('help.frame_enhancer_blend'), type = int, default = config.get_int_value('processors', 'frame_enhancer_blend', '80'), choices = processors_choices.frame_enhancer_blend_range, metavar = create_int_metavar(processors_choices.frame_enhancer_blend_range))
-		facefusion.jobs.job_store.register_step_keys([ 'frame_enhancer_model', 'frame_enhancer_blend' ])
+		facfusione.jobs.job_store.register_step_keys([ 'frame_enhancer_model', 'frame_enhancer_blend' ])
 
 
 def apply_args(args : Args, apply_state_item : ApplyStateItem) -> None:
