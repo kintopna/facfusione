@@ -1,8 +1,8 @@
 import itertools
 import shutil
 
-from facefusion import metadata
-from facefusion.types import Commands
+from facfusione import metadata
+from facfusione.types import Commands
 
 
 def run(commands : Commands) -> Commands:
