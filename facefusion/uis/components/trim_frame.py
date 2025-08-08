@@ -2,12 +2,12 @@ from typing import Optional, Tuple
 
 from gradio_rangeslider import RangeSlider
 
-from facefusion import state_manager, wording
-from facefusion.face_store import clear_static_faces
-from facefusion.filesystem import is_video
-from facefusion.uis.core import get_ui_components
-from facefusion.uis.types import ComponentOptions
-from facefusion.vision import count_video_frame_total
+from facfusione import state_manager, wording
+from facfusione.face_store import clear_static_faces
+from facfusione.filesystem import is_video
+from facfusione.uis.core import get_ui_components
+from facfusione.uis.types import ComponentOptions
+from facfusione.vision import count_video_frame_total
 
 TRIM_FRAME_RANGE_SLIDER : Optional[RangeSlider] = None
 
