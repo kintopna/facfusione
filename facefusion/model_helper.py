@@ -2,7 +2,7 @@ from functools import lru_cache
 
 import onnx
 
-from facefusion.types import ModelInitializer
+from facfusione.types import ModelInitializer
 
 
 @lru_cache(maxsize = None)
