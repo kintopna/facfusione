@@ -2,8 +2,8 @@ import hashlib
 import os
 from typing import Optional
 
-from facefusion import state_manager
-from facefusion.filesystem import get_file_extension, is_image, is_video
+from facfusione import state_manager
+from facfusione.filesystem import get_file_extension, is_image, is_video
 
 
 def convert_int_none(value : int) -> Optional[int]:
