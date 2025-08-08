@@ -2,11 +2,11 @@ from typing import Optional, Tuple
 
 import gradio
 
-from facefusion import state_manager, wording
-from facefusion.face_store import clear_reference_faces, clear_static_faces
-from facefusion.filesystem import is_image, is_video
-from facefusion.uis.core import register_ui_component
-from facefusion.uis.types import ComponentOptions, File
+from facfusione import state_manager, wording
+from facfusione.face_store import clear_reference_faces, clear_static_faces
+from facfusione.filesystem import is_image, is_video
+from facfusione.uis.core import register_ui_component
+from facfusione.uis.types import ComponentOptions, File
 
 TARGET_FILE : Optional[gradio.File] = None
 TARGET_IMAGE : Optional[gradio.Image] = None
