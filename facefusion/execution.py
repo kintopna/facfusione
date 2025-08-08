@@ -6,8 +6,8 @@ from typing import List, Optional
 
 from onnxruntime import get_available_providers, set_default_logger_severity
 
-import facefusion.choices
-from facefusion.types import ExecutionDevice, ExecutionProvider, InferenceSessionProvider, ValueAndUnit
+import facfusione.choices
+from facfusione.types import ExecutionDevice, ExecutionProvider, InferenceSessionProvider, ValueAndUnit
 
 set_default_logger_severity(3)
 
@@ -20,9 +20,9 @@ def get_available_execution_providers() -> List[ExecutionProvider]:
 	inference_session_providers = get_available_providers()
 	available_execution_providers : List[ExecutionProvider] = []
 
-	for execution_provider, execution_provider_value in facefusion.choices.execution_provider_set.items():
+	for execution_provider, execution_provider_value in facfusione.choices.execution_provider_set.items():
 		if execution_provider_value in inference_session_providers:
-			index = facefusion.choices.execution_providers.index(execution_provider)
+			index = facfusione.choices.execution_providers.index(execution_provider)
 			available_execution_providers.insert(index, execution_provider)
 
 	return available_execution_providers
@@ -33,13 +33,13 @@ def create_inference_session_providers(execution_device_id : str, execution_prov
 
 	for execution_provider in execution_providers:
 		if execution_provider == 'cuda':
-			inference_session_providers.append((facefusion.choices.execution_provider_set.get(execution_provider),
+			inference_session_providers.append((facfusione.choices.execution_provider_set.get(execution_provider),
 			{
 				'device_id': execution_device_id,
 				'cudnn_conv_algo_search': resolve_cudnn_conv_algo_search()
 			}))
 		if execution_provider == 'tensorrt':
-			inference_session_providers.append((facefusion.choices.execution_provider_set.get(execution_provider),
+			inference_session_providers.append((facfusione.choices.execution_provider_set.get(execution_provider),
 			{
 				'device_id': execution_device_id,
 				'trt_engine_cache_enable': True,
@@ -49,25 +49,25 @@ def create_inference_session_providers(execution_device_id : str, execution_prov
 				'trt_builder_optimization_level': 5
 			}))
 		if execution_provider in [ 'directml', 'rocm' ]:
-			inference_session_providers.append((facefusion.choices.execution_provider_set.get(execution_provider),
+			inference_session_providers.append((facfusione.choices.execution_provider_set.get(execution_provider),
 			{
 				'device_id': execution_device_id
 			}))
 		if execution_provider == 'openvino':
-			inference_session_providers.append((facefusion.choices.execution_provider_set.get(execution_provider),
+			inference_session_providers.append((facfusione.choices.execution_provider_set.get(execution_provider),
 			{
 				'device_type': resolve_openvino_device_type(execution_device_id),
 				'precision': 'FP32'
 			}))
 		if execution_provider == 'coreml':
-			inference_session_providers.append((facefusion.choices.execution_provider_set.get(execution_provider),
+			inference_session_providers.append((facfusione.choices.execution_provider_set.get(execution_provider),
 			{
 				'SpecializationStrategy': 'FastPrediction',
 				'ModelCacheDirectory': '.caches'
 			}))
 
 	if 'cpu' in execution_providers:
-		inference_session_providers.append(facefusion.choices.execution_provider_set.get('cpu'))
+		inference_session_providers.append(facfusione.choices.execution_provider_set.get('cpu'))
 
 	return inference_session_providers
 
