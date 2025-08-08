@@ -2,8 +2,8 @@ import json
 from json import JSONDecodeError
 from typing import Optional
 
-from facefusion.filesystem import is_file
-from facefusion.types import Content
+from facfusione.filesystem import is_file
+from facfusione.types import Content
 
 
 def read_json(json_path : str) -> Optional[Content]:
