@@ -4,13 +4,13 @@ import tempfile
 
 import pytest
 
-import facefusion.ffmpeg
-from facefusion import process_manager, state_manager
-from facefusion.download import conditional_download
-from facefusion.ffmpeg import concat_video, extract_frames, merge_video, read_audio_buffer, replace_audio, restore_audio
-from facefusion.filesystem import copy_file
-from facefusion.temp_helper import clear_temp_directory, create_temp_directory, get_temp_file_path, resolve_temp_frame_paths
-from facefusion.types import EncoderSet
+import facfusione.ffmpeg
+from facfusione import process_manager, state_manager
+from facfusione.download import conditional_download
+from facfusione.ffmpeg import concat_video, extract_frames, merge_video, read_audio_buffer, replace_audio, restore_audio
+from facfusione.filesystem import copy_file
+from facfusione.temp_helper import clear_temp_directory, create_temp_directory, get_temp_file_path, resolve_temp_frame_paths
+from facfusione.types import EncoderSet
 from .helper import get_test_example_file, get_test_examples_directory, get_test_output_file, prepare_test_output_directory
 
 
@@ -54,7 +54,7 @@ def get_available_encoder_set() -> EncoderSet:
 			'audio': [ 'aac' ],
 			'video': [ 'libx264' ]
 		}
-	return facefusion.ffmpeg.get_available_encoder_set()
+	return facfusione.ffmpeg.get_available_encoder_set()
 
 
 def test_get_available_encoder_set() -> None:
