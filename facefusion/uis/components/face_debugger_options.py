@@ -2,10 +2,10 @@ from typing import List, Optional
 
 import gradio
 
-from facefusion import state_manager, wording
-from facefusion.processors import choices as processors_choices
-from facefusion.processors.types import FaceDebuggerItem
-from facefusion.uis.core import get_ui_component, register_ui_component
+from facfusione import state_manager, wording
+from facfusione.processors import choices as processors_choices
+from facfusione.processors.types import FaceDebuggerItem
+from facfusione.uis.core import get_ui_component, register_ui_component
 
 FACE_DEBUGGER_ITEMS_CHECKBOX_GROUP : Optional[gradio.CheckboxGroup] = None
 
