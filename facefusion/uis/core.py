@@ -7,11 +7,11 @@ from typing import Any, Dict, List, Optional
 import gradio
 from gradio.themes import Size
 
-import facefusion.uis.overrides as uis_overrides
-from facefusion import logger, metadata, state_manager, wording
-from facefusion.exit_helper import hard_exit
-from facefusion.filesystem import resolve_relative_path
-from facefusion.uis.types import Component, ComponentName
+import facfusione.uis.overrides as uis_overrides
+from facfusione import logger, metadata, state_manager, wording
+from facfusione.exit_helper import hard_exit
+from facfusione.filesystem import resolve_relative_path
+from facfusione.uis.types import Component, ComponentName
 
 UI_COMPONENTS: Dict[ComponentName, Component] = {}
 UI_LAYOUT_MODULES : List[ModuleType] = []
@@ -26,7 +26,7 @@ UI_LAYOUT_METHODS =\
 
 def load_ui_layout_module(ui_layout : str) -> Any:
 	try:
-		ui_layout_module = importlib.import_module('facefusion.uis.layouts.' + ui_layout)
+		ui_layout_module = importlib.import_module('facfusione.uis.layouts.' + ui_layout)
 		for method_name in UI_LAYOUT_METHODS:
 			if not hasattr(ui_layout_module, method_name):
 				raise NotImplementedError
