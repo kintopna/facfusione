@@ -4,12 +4,12 @@ from typing import List, Tuple
 import cv2
 import numpy
 
-import facefusion.choices
-from facefusion import inference_manager, state_manager
-from facefusion.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
-from facefusion.filesystem import resolve_relative_path
-from facefusion.thread_helper import conditional_thread_semaphore
-from facefusion.types import DownloadScope, DownloadSet, FaceLandmark68, FaceMaskArea, FaceMaskRegion, InferencePool, Mask, ModelSet, Padding, VisionFrame
+import facfusione.choices
+from facfusione import inference_manager, state_manager
+from facfusione.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
+from facfusione.filesystem import resolve_relative_path
+from facfusione.thread_helper import conditional_thread_semaphore
+from facfusione.types import DownloadScope, DownloadSet, FaceLandmark68, FaceMaskArea, FaceMaskRegion, InferencePool, Mask, ModelSet, Padding, VisionFrame
 
 
 @lru_cache(maxsize = None)
@@ -188,8 +188,8 @@ def create_area_mask(crop_vision_frame : VisionFrame, face_landmark_68 : FaceLan
 	landmark_points = []
 
 	for face_mask_area in face_mask_areas:
-		if face_mask_area in facefusion.choices.face_mask_area_set:
-			landmark_points.extend(facefusion.choices.face_mask_area_set.get(face_mask_area))
+		if face_mask_area in facfusione.choices.face_mask_area_set:
+			landmark_points.extend(facfusione.choices.face_mask_area_set.get(face_mask_area))
 
 	convex_hull = cv2.convexHull(face_landmark_68[landmark_points].astype(numpy.int32))
 	area_mask = numpy.zeros(crop_size).astype(numpy.float32)
@@ -208,7 +208,7 @@ def create_region_mask(crop_vision_frame : VisionFrame, face_mask_regions : List
 	prepare_vision_frame = numpy.expand_dims(prepare_vision_frame, axis = 0)
 	prepare_vision_frame = prepare_vision_frame.transpose(0, 3, 1, 2)
 	region_mask = forward_parse_face(prepare_vision_frame)
-	region_mask = numpy.isin(region_mask.argmax(0), [ facefusion.choices.face_mask_region_set.get(face_mask_region) for face_mask_region in face_mask_regions ])
+	region_mask = numpy.isin(region_mask.argmax(0), [ facfusione.choices.face_mask_region_set.get(face_mask_region) for face_mask_region in face_mask_regions ])
 	region_mask = cv2.resize(region_mask.astype(numpy.float32), crop_vision_frame.shape[:2][::-1])
 	region_mask = (cv2.GaussianBlur(region_mask.clip(0, 1), (0, 0), 5).clip(0.5, 1) - 0.5) * 2
 	return region_mask
