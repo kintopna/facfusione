@@ -4,11 +4,11 @@ from typing import List
 
 from onnxruntime import InferenceSession
 
-from facefusion import process_manager, state_manager
-from facefusion.app_context import detect_app_context
-from facefusion.execution import create_inference_session_providers
-from facefusion.filesystem import is_file
-from facefusion.types import DownloadSet, ExecutionProvider, InferencePool, InferencePoolSet
+from facfusione import process_manager, state_manager
+from facfusione.app_context import detect_app_context
+from facfusione.execution import create_inference_session_providers
+from facfusione.filesystem import is_file
+from facfusione.types import DownloadSet, ExecutionProvider, InferencePool, InferencePoolSet
 
 INFERENCE_POOL_SET : InferencePoolSet =\
 {
