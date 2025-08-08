@@ -1,7 +1,7 @@
 from shutil import which
 
-from facefusion import metadata
-from facefusion.curl_builder import chain, head, run
+from facfusione import metadata
+from facfusione.curl_builder import chain, head, run
 
 
 def test_run() -> None:
