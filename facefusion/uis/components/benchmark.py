@@ -2,9 +2,9 @@ from typing import Any, Generator, List, Optional
 
 import gradio
 
-from facefusion import benchmarker, state_manager, wording
-from facefusion.types import BenchmarkResolution
-from facefusion.uis.core import get_ui_component
+from facfusione import benchmarker, state_manager, wording
+from facfusione.types import BenchmarkResolution
+from facfusione.uis.core import get_ui_component
 
 BENCHMARK_BENCHMARKS_DATAFRAME : Optional[gradio.Dataframe] = None
 BENCHMARK_START_BUTTON : Optional[gradio.Button] = None
