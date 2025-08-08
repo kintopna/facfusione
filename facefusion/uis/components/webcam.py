@@ -8,17 +8,17 @@ import cv2
 import gradio
 from tqdm import tqdm
 
-from facefusion import ffmpeg_builder, logger, state_manager, wording
-from facefusion.audio import create_empty_audio_frame
-from facefusion.common_helper import is_windows
-from facefusion.content_analyser import analyse_stream
-from facefusion.face_analyser import get_average_face, get_many_faces
-from facefusion.ffmpeg import open_ffmpeg
-from facefusion.filesystem import filter_image_paths, is_directory
-from facefusion.processors.core import get_processors_modules
-from facefusion.types import Face, Fps, StreamMode, VisionFrame, WebcamMode
-from facefusion.uis.core import get_ui_component
-from facefusion.vision import normalize_frame_color, read_static_images, unpack_resolution
+from facfusione import ffmpeg_builder, logger, state_manager, wording
+from facfusione.audio import create_empty_audio_frame
+from facfusione.common_helper import is_windows
+from facfusione.content_analyser import analyse_stream
+from facfusione.face_analyser import get_average_face, get_many_faces
+from facfusione.ffmpeg import open_ffmpeg
+from facfusione.filesystem import filter_image_paths, is_directory
+from facfusione.processors.core import get_processors_modules
+from facfusione.types import Face, Fps, StreamMode, VisionFrame, WebcamMode
+from facfusione.uis.core import get_ui_component
+from facfusione.vision import normalize_frame_color, read_static_images, unpack_resolution
 
 WEBCAM_CAPTURE : Optional[cv2.VideoCapture] = None
 WEBCAM_IMAGE : Optional[gradio.Image] = None
