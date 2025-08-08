@@ -1,6 +1,6 @@
 import cv2
 
-from facefusion.types import VideoPoolSet
+from facfusione.types import VideoPoolSet
 
 VIDEO_POOL_SET : VideoPoolSet = {}
 
