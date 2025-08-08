@@ -1,7 +1,7 @@
 from typing import List, Optional
 
-from facefusion.hash_helper import create_hash
-from facefusion.types import Face, FaceSet, FaceStore, VisionFrame
+from facfusione.hash_helper import create_hash
+from facfusione.types import Face, FaceSet, FaceStore, VisionFrame
 
 FACE_STORE : FaceStore =\
 {
