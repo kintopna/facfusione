@@ -5,20 +5,20 @@ from typing import List
 import cv2
 import numpy
 
-import facefusion.jobs.job_manager
-import facefusion.jobs.job_store
-import facefusion.processors.core as processors
-from facefusion import config, content_analyser, inference_manager, logger, process_manager, state_manager, video_manager, wording
-from facefusion.common_helper import create_int_metavar
-from facefusion.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
-from facefusion.execution import has_execution_provider
-from facefusion.filesystem import in_directory, is_image, is_video, resolve_relative_path, same_file_extension
-from facefusion.processors import choices as processors_choices
-from facefusion.processors.types import FrameColorizerInputs
-from facefusion.program_helper import find_argument_group
-from facefusion.thread_helper import thread_semaphore
-from facefusion.types import ApplyStateItem, Args, DownloadScope, ExecutionProvider, Face, InferencePool, ModelOptions, ModelSet, ProcessMode, QueuePayload, UpdateProgress, VisionFrame
-from facefusion.vision import read_image, read_static_image, unpack_resolution, write_image
+import facfusione.jobs.job_manager
+import facfusione.jobs.job_store
+import facfusione.processors.core as processors
+from facfusione import config, content_analyser, inference_manager, logger, process_manager, state_manager, video_manager, wording
+from facfusione.common_helper import create_int_metavar
+from facfusione.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
+from facfusione.execution import has_execution_provider
+from facfusione.filesystem import in_directory, is_image, is_video, resolve_relative_path, same_file_extension
+from facfusione.processors import choices as processors_choices
+from facfusione.processors.types import FrameColorizerInputs
+from facfusione.program_helper import find_argument_group
+from facfusione.thread_helper import thread_semaphore
+from facfusione.types import ApplyStateItem, Args, DownloadScope, ExecutionProvider, Face, InferencePool, ModelOptions, ModelSet, ProcessMode, QueuePayload, UpdateProgress, VisionFrame
+from facfusione.vision import read_image, read_static_image, unpack_resolution, write_image
 
 
 @lru_cache(maxsize = None)
@@ -157,7 +157,7 @@ def register_args(program : ArgumentParser) -> None:
 		group_processors.add_argument('--frame-colorizer-model', help = wording.get('help.frame_colorizer_model'), default = config.get_str_value('processors', 'frame_colorizer_model', 'ddcolor'), choices = processors_choices.frame_colorizer_models)
 		group_processors.add_argument('--frame-colorizer-size', help = wording.get('help.frame_colorizer_size'), type = str, default = config.get_str_value('processors', 'frame_colorizer_size', '256x256'), choices = processors_choices.frame_colorizer_sizes)
 		group_processors.add_argument('--frame-colorizer-blend', help = wording.get('help.frame_colorizer_blend'), type = int, default = config.get_int_value('processors', 'frame_colorizer_blend', '100'), choices = processors_choices.frame_colorizer_blend_range, metavar = create_int_metavar(processors_choices.frame_colorizer_blend_range))
-		facefusion.jobs.job_store.register_step_keys([ 'frame_colorizer_model', 'frame_colorizer_blend', 'frame_colorizer_size' ])
+		facfusione.jobs.job_store.register_step_keys([ 'frame_colorizer_model', 'frame_colorizer_blend', 'frame_colorizer_size' ])
 
 
 def apply_args(args : Args, apply_state_item : ApplyStateItem) -> None:
