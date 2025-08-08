@@ -3,12 +3,12 @@ from typing import Tuple
 
 import numpy
 
-from facefusion import inference_manager
-from facefusion.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
-from facefusion.face_helper import warp_face_by_face_landmark_5
-from facefusion.filesystem import resolve_relative_path
-from facefusion.thread_helper import conditional_thread_semaphore
-from facefusion.types import DownloadScope, Embedding, FaceLandmark5, InferencePool, ModelOptions, ModelSet, VisionFrame
+from facfusione import inference_manager
+from facfusione.download import conditional_download_hashes, conditional_download_sources, resolve_download_url
+from facfusione.face_helper import warp_face_by_face_landmark_5
+from facfusione.filesystem import resolve_relative_path
+from facfusione.thread_helper import conditional_thread_semaphore
+from facfusione.types import DownloadScope, Embedding, FaceLandmark5, InferencePool, ModelOptions, ModelSet, VisionFrame
 
 
 @lru_cache(maxsize = None)
