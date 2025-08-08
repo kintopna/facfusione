@@ -2,9 +2,9 @@ from typing import Union
 
 import pytest
 
-from facefusion.processors.types import ProcessorState
-from facefusion.state_manager import STATE_SET, get_item, init_item, set_item
-from facefusion.types import AppContext, State
+from facfusione.processors.types import ProcessorState
+from facfusione.state_manager import STATE_SET, get_item, init_item, set_item
+from facfusione.types import AppContext, State
 
 
 def get_state(app_context : AppContext) -> Union[State, ProcessorState]:
