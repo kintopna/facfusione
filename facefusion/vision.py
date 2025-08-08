@@ -6,12 +6,12 @@ import cv2
 import numpy
 from cv2.typing import Size
 
-import facefusion.choices
-from facefusion.common_helper import is_windows
-from facefusion.filesystem import get_file_extension, is_image, is_video
-from facefusion.thread_helper import thread_semaphore
-from facefusion.types import Duration, Fps, Orientation, Resolution, VisionFrame
-from facefusion.video_manager import get_video_capture
+import facfusione.choices
+from facfusione.common_helper import is_windows
+from facfusione.filesystem import get_file_extension, is_image, is_video
+from facfusione.thread_helper import thread_semaphore
+from facfusione.types import Duration, Fps, Orientation, Resolution, VisionFrame
+from facfusione.video_manager import get_video_capture
 
 
 @lru_cache()
@@ -73,7 +73,7 @@ def create_image_resolutions(resolution : Resolution) -> List[str]:
 	if resolution:
 		width, height = resolution
 		temp_resolutions.append(normalize_resolution(resolution))
-		for image_template_size in facefusion.choices.image_template_sizes:
+		for image_template_size in facfusione.choices.image_template_sizes:
 			temp_resolutions.append(normalize_resolution((width * image_template_size, height * image_template_size)))
 		temp_resolutions = sorted(set(temp_resolutions))
 		for temp_resolution in temp_resolutions:
@@ -199,7 +199,7 @@ def create_video_resolutions(resolution : Resolution) -> List[str]:
 	if resolution:
 		width, height = resolution
 		temp_resolutions.append(normalize_resolution(resolution))
-		for video_template_size in facefusion.choices.video_template_sizes:
+		for video_template_size in facfusione.choices.video_template_sizes:
 			if width > height:
 				temp_resolutions.append(normalize_resolution((video_template_size * width / height, video_template_size)))
 			else:
